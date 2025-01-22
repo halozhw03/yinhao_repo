@@ -5,26 +5,28 @@ body {
     display: flex;
     align-items: center;
     background: linear-gradient(
-        -45deg,
+        180deg,
         #a3c7e9 0%,
-        #c8ddf1 25%,
+        #b5d1ed 15%,
+        #c8ddf1 30%,
         #e6f0f9 50%,
-        #b4d4f1 75%,
-        #8ab3dc 100%
+        #c8ddf1 70%,
+        #b5d1ed 85%,
+        #a3c7e9 100%
     );
-    background-size: 200% 100%;
-    animation: gradientAnimation 10s linear infinite;
+    background-size: 100% 200%;
+    animation: gradientAnimation 20s linear infinite;
 }
 
 @keyframes gradientAnimation {
     0% {
-        background-position: 0% 50%;
+        background-position: 50% 0%;
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 50% 100%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 50% 0%;
     }
 }
 
