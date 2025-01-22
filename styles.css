@@ -3,7 +3,6 @@ body {
     padding: 0;
     min-height: 100vh;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     background: linear-gradient(
         -45deg,
@@ -15,7 +14,6 @@ body {
     );
     background-size: 200% 100%;
     animation: gradientAnimation 10s linear infinite;
-    padding-left: clamp(1rem, 5vw, 5rem);
 }
 
 @keyframes gradientAnimation {
@@ -42,7 +40,9 @@ h1 {
 
 .container {
     width: 100%;
-    padding: 0 1rem;
+    max-width: 1200px;
+    padding-left: clamp(2rem, 10vw, 8rem);
+    box-sizing: border-box;
 }
 
 .typing {
@@ -59,6 +59,10 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
+    .container {
+        padding-left: 2rem;
+    }
+    
     h1 {
         word-break: break-word;
     }
@@ -69,11 +73,7 @@ h1 {
 }
 
 @media screen and (max-width: 320px) {
-    body {
-        padding-left: 0.5rem;
-    }
-    
     .container {
-        padding: 0 0.5rem;
+        padding-left: 1rem;
     }
 }
