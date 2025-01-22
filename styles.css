@@ -28,6 +28,12 @@ body {
     }
 }
 
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
 h1 {
     color: #000000;
     font-family: 'IBM Plex Sans', Arial, sans-serif;
@@ -35,7 +41,7 @@ h1 {
     text-align: left;
     font-weight: 400;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1;
 }
 
 .container {
@@ -81,9 +87,17 @@ h1 {
 .coming-soon {
     font-family: 'IBM Plex Sans', Arial, sans-serif;
     font-weight: 500;
-    font-size: clamp(0.875rem, 3vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
     margin: 0;
-    margin-left: 5px;
     color: #727D73;
     text-align: left;
+    line-height: 1;
+    margin-top: -0.1rem;
+    margin-left: clamp(0.3rem, 10vw, 0.2rem);
+}
+
+@media screen and (max-width: 768px) {
+    .coming-soon {
+        margin-left: 0.1rem;
+    }
 }
