@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yinhao Zhu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dexter is <span class="typing"></span></h1>
+    </div>
+    <script>
+        const words = ['coding.', 'designing.', 'thinking.'];
+        const typingElement = document.querySelector('.typing');
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isWaiting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                // 删除字符
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // 添加字符
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // 处理删除/打字状态的切换
+            if (!isDeleting && charIndex === currentWord.length) {
+                // 完成打字，等待一段时间后开始删除
+                isWaiting = true;
+                setTimeout(() => {
+                    isDeleting = true;
+                    isWaiting = false;
+                }, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                // 完成删除，切换到下一个词
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+
+            // 设置下一次执行的时间
+            const typingSpeed = isDeleting ? 100 : 200;
+            if (!isWaiting) {
+                setTimeout(type, typingSpeed);
+            } else {
+                setTimeout(type, 1500);
+            }
+        }
+
+        type(); // 开始打字效果
+    </script>
+</body>
+</html>

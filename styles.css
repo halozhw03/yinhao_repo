@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(
+        -45deg,
+        #a3c7e9 0%,
+        #c8ddf1 25%,
+        #e6f0f9 50%,
+        #b4d4f1 75%,
+        #8ab3dc 100%
+    );
+    background-size: 200% 100%;
+    animation: gradientAnimation 10s linear infinite;
+    padding-left: 5rem;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1 {
+    color: #000000;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    font-size: 5rem;
+    text-align: left;
+    font-weight: 400;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+}
+
+.typing {
+    position: relative;
+    border-right: 0.05em solid #000000;
+    animation: caret 1s steps(1) infinite;
+    padding-right: 3px;
+}
+
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
+}
