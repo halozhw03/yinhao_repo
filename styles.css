@@ -15,7 +15,7 @@ body {
     );
     background-size: 200% 100%;
     animation: gradientAnimation 10s linear infinite;
-    padding-left: 5rem;
+    padding-left: clamp(1rem, 5vw, 5rem);
 }
 
 @keyframes gradientAnimation {
@@ -33,14 +33,16 @@ body {
 h1 {
     color: #000000;
     font-family: 'IBM Plex Sans', Arial, sans-serif;
-    font-size: 5rem;
+    font-size: clamp(2rem, 8vw, 5rem);
     text-align: left;
     font-weight: 400;
     margin: 0;
+    line-height: 1.2;
 }
 
 .container {
     width: 100%;
+    padding: 0 1rem;
 }
 
 .typing {
@@ -53,5 +55,25 @@ h1 {
 @keyframes caret {
     50% {
         border-color: transparent;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        word-break: break-word;
+    }
+    
+    .typing {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body {
+        padding-left: 0.5rem;
+    }
+    
+    .container {
+        padding: 0 0.5rem;
     }
 }
